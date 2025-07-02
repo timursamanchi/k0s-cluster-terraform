@@ -1,2 +1,2 @@
-# k0s-cluster-terraform
-k0s deployment of kubernetes on aws cloud using terraform
+# kubernetes-k0s-cluster-terraform
+kubernetes k0s deployment of  on aws cloud using terraform
