@@ -2,7 +2,7 @@
 exec > /var/log/user-data.log 2>&1
 set -e
 touch /tmp/it-works
-echo "Hello from controller node! July 3" > /tmp/it-works
+echo "Hello from controller node! July 3" > /tmp/it-worx
 echo "Installing apps: $(date '+%Y-%m-%d %H:%M:%S')" >> /tmp/it-worx
 
 # Disable swap
