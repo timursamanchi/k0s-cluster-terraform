@@ -2,8 +2,8 @@
 exec > /var/log/user-data.log 2>&1
 set -e
 
-touch /tmp/it-worked
-echo "Create bastion and installing apps: $(date '+%Y-%m-%d %H:%M:%S')" > /tmp/k8-welcome.txt
+touch /tmp/it-worx
+echo "Create bastion and installing apps: $(date '+%Y-%m-%d %H:%M:%S')" > /tmp/it-worx
 
 # Install packages
 apt-get update

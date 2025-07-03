@@ -32,8 +32,10 @@ resource "local_file" "bastians_connect_k0s" {
   file_permission = "0755"
 
   content = <<-EOT
-    #!/bin/bash
+    echo "Removing all identities from ssh-agent..."
+    ssh-add -D
 
+    echo "Adding new identities to ssh-agent..."
     PEM_FILE="../pems/${var.key_name}-${random_string.key_suffix.result}.pem"
 
     echo "Checking if ssh-agent is running..."
@@ -44,9 +46,7 @@ resource "local_file" "bastians_connect_k0s" {
 
     echo "Setting permissions on PEM file: $PEM_FILE"
     chmod 400 $PEM_FILE
-    echo "Removing all identities from ssh-agent..."
-    ssh-add -D
-
+  
     echo "Adding PEM file to SSH agent..."
     ssh-add $PEM_FILE
 
