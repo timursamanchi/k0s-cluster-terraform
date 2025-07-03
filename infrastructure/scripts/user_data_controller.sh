@@ -1,6 +1,7 @@
 #!/bin/bash
 exec > /var/log/user-data.log 2>&1
 set -e
+
 sleep 10
 touch /tmp/it-worked
 echo "Create k8 controllers and installing apps: $(date '+%Y-%m-%d %H:%M:%S') - check /var/log/user-data" > /tmp/k8-welcome.txt
@@ -9,18 +10,14 @@ echo "Create k8 controllers and installing apps: $(date '+%Y-%m-%d %H:%M:%S') - 
 swapoff -a
 sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
-# Install packages
+# Install base packages
 apt-get update
-apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+apt-get install -y ca-certificates curl gnupg lsb-release
 
-# Kubernetes signing key + repo
-mkdir -p /etc/apt/keyrings
-curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-jammy main" > /etc/apt/sources.list.d/kubernetes.list
+# Install kubectl from official binary
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-# Install Kubernetes + containerd
-# apt-get update
-# apt-get install -y containerd kubelet kubeadm kubectl
-# systemctl enable --now containerd
-# apt-mark hold kubelet kubeadm kubectl
-
+# Install k0s
+curl -sSLf https://get.k0s.sh | sudo sh
+systemctl enable --now k0scontroller

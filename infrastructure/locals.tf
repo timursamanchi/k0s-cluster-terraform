@@ -44,6 +44,8 @@ resource "local_file" "bastians_connect_k0s" {
 
     echo "Setting permissions on PEM file: $PEM_FILE"
     chmod 400 $PEM_FILE
+    echo "Removing all identities from ssh-agent..."
+    ssh-add -D
 
     echo "Adding PEM file to SSH agent..."
     ssh-add $PEM_FILE
