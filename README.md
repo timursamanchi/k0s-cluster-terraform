@@ -1,5 +1,5 @@
 
-# production grade  kubernetes k0s cluster deployment
+# k0s Cluster Terraform Deployment
 
 [![Terraform Version](https://img.shields.io/badge/Terraform-1.0%2B-blue?logo=terraform)](https://www.terraform.io/)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-orange?logo=amazon-aws)](https://aws.amazon.com/)
@@ -25,7 +25,7 @@ This project provides an **infrastructure-as-code (IaC)** solution to deploy a *
 
 ## 🖥️ Architecture Diagram
 
-![Architecture Diagram](./A_README.md_file_of_a_project_titled_“k0s_Cluster_.png)
+![Architecture Diagram](./A_2D_digital_architectural_diagram_illustrates_a_K.png)
 
 ---
 
