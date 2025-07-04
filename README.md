@@ -1,5 +1,6 @@
 
-# production grade kubernetes k0s cluster terraform-jenkins Deployment
+# Production grade kubernetes k0s cluster terraform-jenkins Deployment
+# not ready for presentation yet
 
 [![Terraform Version](https://img.shields.io/badge/Terraform-1.0%2B-blue?logo=terraform)](https://www.terraform.io/)
 [![AWS](https://img.shields.io/badge/AWS-Cloud-orange?logo=amazon-aws)](https://aws.amazon.com/)
