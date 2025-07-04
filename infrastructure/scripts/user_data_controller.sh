@@ -15,6 +15,7 @@ apt-get install -y ca-certificates curl gnupg lsb-release
 
 # Install k0s
 curl -sSLf https://get.k0s.sh | sudo sh
+k0s config create > /etc/k0s.yaml
 k0s default-config > /etc/k0s.yaml
 k0s install controller --config /etc/k0s.yaml
 # Start k0s controller service after a short pause
